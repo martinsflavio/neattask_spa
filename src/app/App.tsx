@@ -1,14 +1,25 @@
 import * as React from 'react';
-import Avatar from './components/Avatar';
+import { Switch, Route } from "react-router-dom";
+import { CssBaseline } from "@material-ui/core";
+import Routes from "./routes";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-       <Avatar name="Flavio" age={5} />
-      </div>
-    );
-  }
-}
+const App: React.FunctionComponent<{}> = () => {
+  return (
+    <React.Fragment>
+      <CssBaseline/>
+      <Switch>
+        {
+          Routes.map((prop, key) => {
+            return (
+              <Route
+                key={key}
+                {...prop} />
+            );
+          })
+        }
+      </Switch>
+    </React.Fragment>
+  );
+};
 
 export default App;
