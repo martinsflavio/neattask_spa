@@ -1,13 +1,18 @@
 import * as React from 'react';
 import {
-  NotFound } from '../views';
+  LandingPage, NotFound
+} from '../views';
 
-//TODO abstract exact property
 interface IRoutes {
-  path?: string; name: string; component: React.FunctionComponent
+  exact?: boolean,
+  path?: string;
+  name: string;
+  component: React.FunctionComponent | React.ComponentClass;
 }
+
 const Routes: IRoutes[] = [
-  { name: "NotFound", component: NotFound }
+  { exact: true, path:"/", name: "LandingPage", component: LandingPage },
+  {                        name: "NotFound",    component: NotFound }
 ];
 
 export default Routes;
